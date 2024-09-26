@@ -15,6 +15,7 @@ namespace DemoWASM.Pages.Exos
 
 		[Parameter]
 		public EventCallback<string> Reponse { get; set; }
+
 		public void EnvoieReponse(string reponse)
 		{
 			Reponse.InvokeAsync(reponse);
