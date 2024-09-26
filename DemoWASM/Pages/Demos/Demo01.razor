@@ -1,0 +1,18 @@
+﻿@page "/demo01"
+
+<h3>Demo01</h3>
+<div>
+	<p>Valeur propriété : @Valeur</p>
+	<p class="text-info">Property Binding : One Way (lecture seul)</p>
+</div>
+
+<div>
+	<input type="number" @bind-value="Valeur" />
+	<p class="text-info">Property Binding : Two Ways (lecture et écriture)</p>
+</div>
+
+<div>
+	<button class="btn btn-outline-dark btn-sm" @onclick="Ajouter">Ajouter</button>
+	<button class="btn btn-outline-dark btn-sm" @onclick="() => Ajouter5(5)" disabled="@(Valeur>50)">Ajouter 5</button>
+	<p class="text-info">Event Binding (Lier une méthode C# à un bouton)</p>
+</div>

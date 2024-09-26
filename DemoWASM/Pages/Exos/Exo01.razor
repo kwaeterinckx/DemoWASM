@@ -1,0 +1,27 @@
+﻿@page "/Exo01"
+
+<h3>Exo01 : Quizz</h3>
+
+@if (Prenom is null)
+{
+	<label>
+		Prénom :
+		<input type="text" @bind-value="@Prenom" />
+	</label>
+}
+else
+{
+	if (CurrentQuestion < TotalQuestions)
+	{
+		<Exo01_Question Prenom="@Prenom" NoQuestion="@(CurrentQuestion + 1)" Question="@(Questions[CurrentQuestion])" Reponse="TraitementReponse"></Exo01_Question>
+	}
+	else
+	{
+		<ol>
+			@foreach (string reponse in Reponses)
+			{
+				<li>@reponse</li>
+			}
+		</ol>
+	}
+}
