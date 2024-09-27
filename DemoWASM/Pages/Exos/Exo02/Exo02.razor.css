@@ -1,0 +1,48 @@
+﻿.gamer__grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas:
+        "list add"
+        "list info";
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid grey;
+    border-radius: .5rem;
+    width: fit-content;
+}
+
+.gamer__list {
+    grid-area: list;
+    padding-right: 2rem;
+    border-right: 1px solid lightgrey;
+}
+
+.gamer__add {
+    grid-area: add;
+}
+
+.gamer__info {
+    grid-area: info;
+    padding-top: 2rem;
+    border-top: 1px solid lightgrey;
+}
+
+.gamer__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-block: .5rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+    .gamer__item:last-of-type {
+        padding-bottom: 0;
+        border: none;
+    }
+
+    .gamer__item p {
+        margin: 0;
+    }
+

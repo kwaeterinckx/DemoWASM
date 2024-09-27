@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace DemoWASM.Pages.Exos
+namespace DemoWASM.Pages.Exos.Exo01
 {
 	public partial class Exo01_Question
 	{

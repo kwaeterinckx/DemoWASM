@@ -1,0 +1,20 @@
+﻿<EditForm Model="@GamerForm" OnValidSubmit="CreateGamer">
+    <DataAnnotationsValidator />
+    <label class="gamer__field">
+        Pseudo : <InputText @bind-Value="GamerForm.Pseudo" />
+        <ValidationMessage For="() => GamerForm.Pseudo" />
+    </label>
+    <label class="gamer__field">
+        Email : <InputText @bind-Value="GamerForm.Email" />
+        <ValidationMessage For="() => GamerForm.Email" />
+    </label>
+    <label class="gamer__field">
+        Password : <InputText type="password" @bind-Value="GamerForm.Password" />
+        <ValidationMessage For="() => GamerForm.Password" />
+    </label>
+    <label class="gamer__field">
+        Date de naissance : <InputDate @bind-Value="GamerForm.DateNaissance" />
+    </label>
+    <input type="hidden" @bind-value="GamerForm.Id" />
+    <button class="btn btn-sm btn-outline-success">Valider</button>
+</EditForm>

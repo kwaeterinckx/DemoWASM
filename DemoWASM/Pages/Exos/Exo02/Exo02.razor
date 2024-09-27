@@ -1,0 +1,54 @@
+﻿@page "/exo02/{info?}/{gamerId:int?}"
+
+@using DemoWASM.Models
+@using DemoWASM.Pages.Exos.Exo02.Components;
+
+<h3>Gamers</h3>
+
+<div class="gamer__grid">
+    <div class="gamer__list">
+        <h4>Liste des joueurs</h4>
+        @if (Gamers.Count == 0)
+        {
+            <div class="gamer__item">
+                <p>Aucun joueur &hellip;</p>
+            </div>
+        }
+        else
+        {
+            @foreach (Exo02_Gamer gamer in Gamers)
+            {
+                <div class="gamer__item">
+                    <p>@(gamer.Pseudo)</p>
+                    <div class="btn-group btn-group-sm">
+                        <NavLink class="btn btn-outline-primary btn-sm" href=@($"exo02/info/{gamer.Id}")>Détails</NavLink>
+                        <NavLink class="btn btn-outline-secondary btn-sm" href=@($"exo02/edit/{gamer.Id}")>Modifier</NavLink>
+                        @* <NavLink class="btn btn-outline-danger btn-sm" href=@($"exo02/delete/{gamer.Id}")>Supprimer</NavLink> *@
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="gamer__add">
+        <h4>Ajouter un joueur</h4>
+        <Exo02_NewGamerForm GamerForm="GamerForm" ReponseEvent="SubmitAddForm" />
+    </div>
+    <div class="gamer__info">
+        @if (info is not null && gamerId is not null)
+        {
+            if (info == "info")
+            {
+                <Exo02_GamerDetails Gamer="Gamers[(int)gamerId - 1]" />
+            }
+            else if (info == "edti")
+            {
+
+            }
+            else if (info == "delete")
+            {
+                
+            }
+        }
+    </div>
+</div>
+
