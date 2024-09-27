@@ -1,7 +1,7 @@
 ﻿@page "/exo02/{info?}/{gamerId:int?}"
 
 @using DemoWASM.Models
-@using DemoWASM.Pages.Exos.Exo02.Components;
+@using DemoWASM.Pages.Exos.Exo02.Components
 
 <h3>Gamers</h3>
 
@@ -16,13 +16,13 @@
         }
         else
         {
-            @foreach (Exo02_Gamer gamer in Gamers)
+            @foreach (KeyValuePair<int, Exo02_Gamer> gamer in Gamers)
             {
                 <div class="gamer__item">
-                    <p>@(gamer.Pseudo)</p>
+                    <p>@(gamer.Value.Pseudo)</p>
                     <div class="btn-group btn-group-sm">
-                        <NavLink class="btn btn-outline-primary btn-sm" href=@($"exo02/info/{gamer.Id}")>Détails</NavLink>
-                        <NavLink class="btn btn-outline-secondary btn-sm" href=@($"exo02/edit/{gamer.Id}")>Modifier</NavLink>
+                        <NavLink class="btn btn-outline-primary btn-sm" href=@($"exo02/info/{gamer.Value.Id}")>Détails</NavLink>
+                        <NavLink class="btn btn-outline-secondary btn-sm" href=@($"exo02/edit/{gamer.Value.Id}")>Modifier</NavLink>
                         @* <NavLink class="btn btn-outline-danger btn-sm" href=@($"exo02/delete/{gamer.Id}")>Supprimer</NavLink> *@
                     </div>
                 </div>
@@ -38,11 +38,11 @@
         {
             if (info == "info")
             {
-                <Exo02_GamerDetails Gamer="Gamers[(int)gamerId - 1]" />
+                <Exo02_GamerDetails Gamer="Gamers[(int)gamerId]" />
             }
-            else if (info == "edti")
+            else if (info == "edit")
             {
-
+                <Exo02_EditGamerForm EditGamerForm="Gamers[(int)gamerId]" ReponseEvent="SubmitEditForm" />
             }
             else if (info == "delete")
             {
